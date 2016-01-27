@@ -1,0 +1,13 @@
+{
+    "name": "dahaisoft/lottery",
+    "description": "抽奖类",
+    "license": "The MIT License (MIT)",
+    "authors": [
+        {
+            "name": "Haiwei Long",
+            "email": "haiwei.free@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
