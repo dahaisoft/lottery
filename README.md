@@ -1,6 +1,20 @@
-# 跟据设置的概率随机抽取一个奖品类
+# 一个抽奖类
 
+跟据设置的概率随机抽取
+
+## 安装
+
+```bash
+$ composer require dahaisoft/lottery
 ```
+
+## 使用
+
+```php
+<?php
+
+use dahai\Lottery;
+
 $list = [
     [
         'prize'=>'奖品名1', //奖品名
@@ -14,4 +28,6 @@ $list = [
     ],
 ];
 $prize = Lottery::rock($list);
+
+?>
 ```
