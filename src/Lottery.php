@@ -9,13 +9,6 @@ namespace dahai;
 /**
  * 随机抽取一个奖品类
  *
- * ```php
- * $list = [
- *     ['prize'=>'奖品名1', 'odds'=> 50, 'data' => []],
- *     ['prize'=>'奖品名2', 'odds'=> 50, 'data' => []],
- * ];
- * Lottery::rock($list);
- * ```
  * @author Haiwei Long <haiwei.free@gmail.com>
  */
 
@@ -39,12 +32,6 @@ class Lottery
         $randId = self::rand($arr);
 
         $res['yes'] = $list[$randId-1];
-        // unset($list[$rid-1]);
-        // shuffle($list);
-        // for($i=0;$i<count($list);$i++){
-            // $pr[] = $list[$i]['prize'];
-        // }
-        // $res['no'] = $pr;
 
         return $res['yes'];
     }
