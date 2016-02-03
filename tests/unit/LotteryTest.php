@@ -1,6 +1,7 @@
 <?php
 
 use dahai\Lottery;
+use Codeception\Util\Fixtures;
 
 class LotteryTest extends \Codeception\TestCase\Test
 {
@@ -37,7 +38,7 @@ class LotteryTest extends \Codeception\TestCase\Test
         ];
 
         //抽1000次
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < Fixtures::get('runTimes'); $i++) {
             $result = Lottery::rock($list);
 
             $this->assertEquals($result['id'], 1);
@@ -69,7 +70,7 @@ class LotteryTest extends \Codeception\TestCase\Test
 
         //抽1000次
         $total = [];
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < Fixtures::get('runTimes'); $i++) {
             $result = Lottery::rock($list);
 
             if (!isset($total[$result['id']])) {
@@ -80,10 +81,10 @@ class LotteryTest extends \Codeception\TestCase\Test
         }
         codecept_debug($total);
 
-        $rs = round($total[1] / 1000 * 100);
+        $rs = round($total[1] / Fixtures::get('runTimes') * 100);
         $this->assertTrue(in_array($rs, range(48, 52)));
 
-        $rs = round($total[2] / 1000 * 100);
+        $rs = round($total[2] / Fixtures::get('runTimes') * 100);
         $this->assertTrue(in_array($rs, range(48, 52)));
     }
     
@@ -112,7 +113,7 @@ class LotteryTest extends \Codeception\TestCase\Test
 
         //抽1000次
         $total = [];
-        for ($i = 0; $i < 1000; $i++) {
+        for ($i = 0; $i < Fixtures::get('runTimes'); $i++) {
             $result = Lottery::rock($list);
 
             if (!isset($total[$result['id']])) {
@@ -123,10 +124,10 @@ class LotteryTest extends \Codeception\TestCase\Test
         }
         codecept_debug($total);
 
-        $rs = round($total[1] / 1000 * 100);
+        $rs = round($total[1] / Fixtures::get('runTimes') * 100);
         $this->assertTrue(in_array($rs, range(8,12)));
 
-        $rs = round($total[2] / 1000 * 100);
+        $rs = round($total[2] / Fixtures::get('runTimes') * 100);
         $this->assertTrue(in_array($rs, range(88,92)));
     }
 
